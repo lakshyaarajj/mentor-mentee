@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor</title>
+
+    <link rel="stylesheet" href="css/sahyogstyle.css">
+
+</head>
+<body>
+    <a href="index.html"><h3>HOME</h3></a> 
+
+    <div class="mentorbg">
+
+        <img src="/Files/Mentor.png">
+
+        <h2 class="name">NAME</h2>
+        <h2 class="branch">BRANCH</h2>
+        <h2 class="roll">ROLL NO.</h2>
+        <h2 class="sem">SEMESTER</h2>
+        <h2 class="linked">LINKEDIN URL</h2>
+        <h2 class="skills">SKILLS</h2>
+    </div>
+
+    
+
+    <form method="POST" id="sheetdb-form"
+  action="https://sheetdb.io/api/v1/v8j8nzhchdhrs">
+        <div class="container">
+        <input type="text" placeholder=" Enter your Name" required id="txtbx1" name="data[Name]">
+        <input type="text" placeholder=" Enter your Branch" required id="txtbx2" name="data[Branch]">
+        <input type="text" placeholder=" Enter your Roll No." required id="txtbx3" name="data[Roll]">
+        <input type="text" placeholder=" Enter your Semester" required id="txtbx4" name="data[Semester]">
+        <input type="text" placeholder=" Enter your Linkedin URL" required id="txtbx5" name="data[Linkedin URL]">
+        <input list="skills" placeholder="Enter your Skills" required id="txtbx6" name="data[Skills]">
+
+        <datalist id="skills">
+            <option value="Stress Management">
+                <option value="Anxiety Management">
+                <option value="Emotion Management">
+                <option value="Career Guidance">
+                <option value="Relationship Guidance">
+                <option value="Academic Guidance">
+        </datalist>
+
+    </div>  
+    <button onclick="getData()" class="buttonm">SUBMIT</button>
+</form>
+    
+
+    <script>
+
+//   function getData()
+//   {
+//     var showData=document.getElementById('txtbx6').value;
+//     alert(showData);
+//   }
+
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("sheetdb-form")),
+          }).then(
+              response => response.json()
+          ).then((html) => {
+            // you can put any JS code here
+             alert('Successfully Registered')
+          });
+        });
+      </script>
+    
+</body>
+</html>
